@@ -2,10 +2,10 @@ struct Solution;
 
 impl Solution {
     pub fn contains_duplicate(mut nums: Vec<i32>) -> bool {
-        // let mut sorted_nums = nums.clone();
-        // sorted_nums.sort();
+        // sort the vector
         nums.sort();
 
+        // compare the vector
         for i in 0..nums.len() - 1 {
             if nums[i] == nums[i + 1] {
                 return true;
