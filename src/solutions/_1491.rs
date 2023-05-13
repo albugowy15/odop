@@ -1,15 +1,11 @@
 struct Solution;
 
 impl Solution {
-    pub fn average(salary: Vec<i32>) -> f64 {
-        let sorted_salary = {
-            let mut sorted_salary = salary.clone();
-            sorted_salary.sort();
-            sorted_salary
-        };
+    pub fn average(mut salary: Vec<i32>) -> f64 {
+        salary.sort();
 
-        let avg = sorted_salary[1..salary.len() - 1].iter().sum::<i32>() as f64
-            / (salary.len() - 2) as f64;
+        let avg =
+            salary[1..salary.len() - 1].iter().sum::<i32>() as f64 / (salary.len() - 2) as f64;
         return avg;
     }
 }
