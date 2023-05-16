@@ -3,5 +3,6 @@ pub mod _1721;
 pub mod _1799;
 pub mod _2140;
 pub mod _217;
+pub mod _24;
 pub mod _242;
 pub mod _2466;
