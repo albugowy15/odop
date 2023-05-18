@@ -1,4 +1,4 @@
-struct Solution;
+use super::Solution;
 
 impl Solution {
     pub fn average(mut salary: Vec<i32>) -> f64 {

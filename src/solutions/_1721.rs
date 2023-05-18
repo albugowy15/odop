@@ -1,17 +1,7 @@
-struct Solution;
-// Definition for singly-linked list.
-#[derive(PartialEq, Eq, Clone, Debug)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
+use crate::utils::linked_list::{self, ListNode};
 
-impl ListNode {
-    #[inline]
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
+use super::Solution;
+
 impl Solution {
     pub fn swap_nodes(mut head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
         let mut len = 0;
@@ -59,57 +49,8 @@ impl Solution {
 
 #[test]
 fn test() {
-    let mut head = Some(Box::new(ListNode::new(1)));
-    head.as_mut().unwrap().next = Some(Box::new(ListNode::new(2)));
-    head.as_mut().unwrap().next.as_mut().unwrap().next = Some(Box::new(ListNode::new(3)));
-    head.as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next = Some(Box::new(ListNode::new(4)));
-    head.as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next = Some(Box::new(ListNode::new(5)));
+    let head = linked_list::create_linked_list(vec![1, 2, 3, 4, 5]);
     let k = 2;
-
-    let mut expected = Some(Box::new(ListNode::new(1)));
-    expected.as_mut().unwrap().next = Some(Box::new(ListNode::new(4)));
-    expected.as_mut().unwrap().next.as_mut().unwrap().next = Some(Box::new(ListNode::new(3)));
-    expected
-        .as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next = Some(Box::new(ListNode::new(2)));
-    expected
-        .as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next = Some(Box::new(ListNode::new(5)));
+    let expected = linked_list::create_linked_list(vec![1, 4, 3, 2, 5]);
     assert_eq!(Solution::swap_nodes(head.clone(), k), expected);
 }

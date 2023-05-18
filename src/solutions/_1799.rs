@@ -1,6 +1,6 @@
 use std::cmp::max;
 
-struct Solution;
+use super::Solution;
 
 impl Solution {
     fn gcd(a: i32, b: i32) -> i32 {

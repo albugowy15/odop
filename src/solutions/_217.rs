@@ -1,4 +1,4 @@
-struct Solution;
+use super::Solution;
 
 impl Solution {
     pub fn contains_duplicate(mut nums: Vec<i32>) -> bool {

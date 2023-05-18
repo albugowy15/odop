@@ -1,6 +1,6 @@
 use std::vec;
 
-struct Solution;
+use super::Solution;
 
 impl Solution {
     fn solve(

@@ -1,18 +1,6 @@
+use crate::utils::linked_list::{create_linked_list, ListNode};
+
 use super::Solution;
-
-// Definition for singly-linked list.
-#[derive(PartialEq, Eq, Clone, Debug)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
-
-impl ListNode {
-    #[inline]
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
 
 impl Solution {
     pub fn pair_sum(head: Option<Box<ListNode>>) -> i32 {
@@ -40,38 +28,14 @@ impl Solution {
 
 #[test]
 fn test() {
-    let mut head = Some(Box::new(ListNode::new(5)));
-    head.as_mut().unwrap().next = Some(Box::new(ListNode::new(4)));
-    head.as_mut().unwrap().next.as_mut().unwrap().next = Some(Box::new(ListNode::new(2)));
-    head.as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next = Some(Box::new(ListNode::new(1)));
+    let head = create_linked_list(vec![5, 4, 2, 1]);
 
     assert_eq!(Solution::pair_sum(head), 6);
 
-    let mut head = Some(Box::new(ListNode::new(4)));
-    head.as_mut().unwrap().next = Some(Box::new(ListNode::new(2)));
-    head.as_mut().unwrap().next.as_mut().unwrap().next = Some(Box::new(ListNode::new(2)));
-    head.as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next = Some(Box::new(ListNode::new(3)));
-
+    let head = create_linked_list(vec![4, 2, 2, 3]);
     assert_eq!(Solution::pair_sum(head), 7);
 
-    let mut head = Some(Box::new(ListNode::new(1)));
-    head.as_mut().unwrap().next = Some(Box::new(ListNode::new(100000)));
+    let head = create_linked_list(vec![1, 100000]);
 
     assert_eq!(Solution::pair_sum(head), 100001);
 }

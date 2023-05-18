@@ -1,18 +1,6 @@
-struct Solution;
+use crate::utils::linked_list::{create_linked_list, ListNode};
 
-// Definition for singly-linked list.
-#[derive(PartialEq, Eq, Clone, Debug)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
-
-impl ListNode {
-    #[inline]
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
+use super::Solution;
 
 impl Solution {
     pub fn swap_pairs(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
@@ -41,33 +29,7 @@ impl Solution {
 
 #[test]
 fn test() {
-    let mut node1 = Some(Box::new(ListNode::new(1)));
-    node1.as_mut().unwrap().next = Some(Box::new(ListNode::new(2)));
-    node1.as_mut().unwrap().next.as_mut().unwrap().next = Some(Box::new(ListNode::new(3)));
-    node1
-        .as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next = Some(Box::new(ListNode::new(4)));
-
-    let mut node2 = Some(Box::new(ListNode::new(2)));
-    node2.as_mut().unwrap().next = Some(Box::new(ListNode::new(1)));
-    node2.as_mut().unwrap().next.as_mut().unwrap().next = Some(Box::new(ListNode::new(4)));
-    node2
-        .as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next
-        .as_mut()
-        .unwrap()
-        .next = Some(Box::new(ListNode::new(3)));
-
+    let node1 = create_linked_list(vec![1, 2, 3, 4]);
+    let node2 = create_linked_list(vec![2, 1, 4, 3]);
     assert_eq!(Solution::swap_pairs(node1), node2);
 }

@@ -1,4 +1,4 @@
-struct Solution;
+use super::Solution;
 
 impl Solution {
     pub fn count_good_string(low: i32, high: i32, zero: i32, one: i32) -> i32 {
