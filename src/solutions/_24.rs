@@ -1,9 +1,11 @@
-use crate::utils::linked_list::{create_linked_list, ListNode};
+use crate::utils::linked_list;
 
 use super::Solution;
 
 impl Solution {
-    pub fn swap_pairs(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    pub fn swap_pairs(
+        head: Option<Box<linked_list::ListNode>>,
+    ) -> Option<Box<linked_list::ListNode>> {
         if head.is_none() {
             return None;
         }
@@ -29,7 +31,7 @@ impl Solution {
 
 #[test]
 fn test() {
-    let node1 = create_linked_list(vec![1, 2, 3, 4]);
-    let node2 = create_linked_list(vec![2, 1, 4, 3]);
+    let node1 = linked_list::create_linked_list(vec![1, 2, 3, 4]);
+    let node2 = linked_list::create_linked_list(vec![2, 1, 4, 3]);
     assert_eq!(Solution::swap_pairs(node1), node2);
 }

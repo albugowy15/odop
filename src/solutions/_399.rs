@@ -1,7 +1,4 @@
-use std::{
-    collections::{HashMap, HashSet, VecDeque},
-    vec,
-};
+use std::collections::{HashMap, HashSet, VecDeque};
 
 use super::Solution;
 

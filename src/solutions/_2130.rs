@@ -1,4 +1,4 @@
-use crate::utils::linked_list::{create_linked_list, ListNode};
+use crate::utils::linked_list::ListNode;
 
 use super::Solution;
 
@@ -28,14 +28,14 @@ impl Solution {
 
 #[test]
 fn test() {
-    let head = create_linked_list(vec![5, 4, 2, 1]);
+    let head = crate::utils::linked_list::create_linked_list(vec![5, 4, 2, 1]);
 
     assert_eq!(Solution::pair_sum(head), 6);
 
-    let head = create_linked_list(vec![4, 2, 2, 3]);
+    let head = crate::utils::linked_list::create_linked_list(vec![4, 2, 2, 3]);
     assert_eq!(Solution::pair_sum(head), 7);
 
-    let head = create_linked_list(vec![1, 100000]);
+    let head = crate::utils::linked_list::create_linked_list(vec![1, 100000]);
 
     assert_eq!(Solution::pair_sum(head), 100001);
 }

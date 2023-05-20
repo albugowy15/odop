@@ -1,4 +1,4 @@
-use crate::utils::linked_list::{self, ListNode};
+use crate::utils::linked_list::ListNode;
 
 use super::Solution;
 
@@ -49,8 +49,8 @@ impl Solution {
 
 #[test]
 fn test() {
-    let head = linked_list::create_linked_list(vec![1, 2, 3, 4, 5]);
+    let head = crate::utils::linked_list::create_linked_list(vec![1, 2, 3, 4, 5]);
     let k = 2;
-    let expected = linked_list::create_linked_list(vec![1, 4, 3, 2, 5]);
+    let expected = crate::utils::linked_list::create_linked_list(vec![1, 4, 3, 2, 5]);
     assert_eq!(Solution::swap_nodes(head.clone(), k), expected);
 }
