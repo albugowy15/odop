@@ -1,8 +1,10 @@
+#[allow(dead_code)]
 struct MinStack {
     main_stack: Vec<i32>,
     min_stack: Vec<i32>,
 }
 
+#[allow(dead_code)]
 impl MinStack {
     fn new() -> Self {
         Self {
