@@ -21,3 +21,12 @@ pub fn create_linked_list(v: Vec<i32>) -> Option<Box<ListNode>> {
     }
     head
 }
+
+pub fn linked_list_to_vec(mut head: Option<Box<ListNode>>) -> Vec<i32> {
+    let mut v = vec![];
+    while let Some(node) = head {
+        v.push(node.val);
+        head = node.next;
+    }
+    v
+}

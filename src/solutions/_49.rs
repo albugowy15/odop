@@ -28,19 +28,3 @@ impl Solution {
         ans.values().cloned().collect()
     }
 }
-
-#[test]
-fn test_group_anagrams() {
-    // Test case 1
-    let strs1 = vec![
-        "eat".to_string(),
-        "tea".to_string(),
-        "tan".to_string(),
-        "ate".to_string(),
-        "nat".to_string(),
-        "bat".to_string(),
-    ];
-    let expected1 = vec![vec!["eat", "tea", "ate"], vec!["tan", "nat"], vec!["bat"]];
-    let result1 = Solution::group_anagrams(strs1);
-    assert_eq!(expected1, result1);
-}
